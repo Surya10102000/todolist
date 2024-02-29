@@ -6,7 +6,7 @@ const connectDB = require('./db/connect')
 require("dotenv").config()
 
 // middlewares
-
+app.use(express.static('./public'))
 app.use(express.json());
 
 // routes
