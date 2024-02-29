@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 
-const connectionString = "mongodb+srv://shawn0072:9kO48ODqlCCIQqXt@nodeexpressporjects.x5v2wvv.mongodb.net/?retryWrites=true&w=majority"
-
-const connectDB = url =>{
-    mongoose
-    .connect(connectionString,{
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false
-        }) 
+const connectDB = async (uri)=>{
+    try {
+        await mongoose.connect(uri, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          useCreateIndex: true,
+          useindAndModify: false
+        });
+        console.log('MongoDB connected successfully')
+    }catch(error){
+        console.error(error);
+    }
 }
 
-module.exports = connectDB
-
-    
+module.exports = connectDB;
